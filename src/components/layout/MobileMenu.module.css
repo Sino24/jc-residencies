@@ -1,0 +1,74 @@
+/* Local copy: CSS Modules scope bare animation-name identifiers, so a name
+   referencing the global animations.css keyframes would silently no-op. */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-menu);
+  visibility: hidden;
+  transition: visibility 0s linear 0.45s;
+}
+.open { visibility: visible; transition-delay: 0s; }
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 12, 0.5);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+.open .backdrop { opacity: 1; }
+
+.panel {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: min(92vw, 400px);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.25rem 1.5rem 1.75rem;
+  overflow-y: auto;
+  color: #fff;
+  background: var(--glass-bg-on-dark-strong);
+  backdrop-filter: blur(var(--glass-blur-lg)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur-lg)) saturate(var(--glass-saturate));
+  border-left: 1px solid var(--glass-border-on-dark);
+  box-shadow: var(--glass-shadow);
+  transform: translateX(100%);
+  transition: transform 0.45s var(--ease-out);
+}
+.open .panel { transform: none; }
+
+.top { display: flex; align-items: center; justify-content: space-between; }
+.close { display: grid; place-items: center; width: 44px; height: 44px; }
+
+.links { display: flex; flex-direction: column; }
+.link {
+  padding: 0.95rem 0;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  transition: color var(--duration-fast) ease;
+}
+.open .link {
+  animation: fadeIn 0.5s ease both;
+  animation-delay: calc(140ms + var(--i) * 45ms);
+}
+.link:hover, .active { color: var(--color-accent-light); }
+
+.footer { display: flex; flex-direction: column; gap: 0.75rem; margin-top: auto; }
+.socials { display: flex; gap: 0.6rem; margin-top: 0.5rem; }
+.socials a {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--duration-fast) ease, color var(--duration-fast) ease;
+}
+.socials a:hover { background: var(--color-accent-light); color: var(--color-primary-dark); }

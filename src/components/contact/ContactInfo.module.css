@@ -1,0 +1,9 @@
+.grid { display: grid; gap: 0; }
+.item { display: flex; gap: 1.1rem; padding-block: 1.4rem; border-top: 1px solid var(--color-border-strong); }
+.item > svg { flex-shrink: 0; margin-top: 0.2rem; color: var(--color-accent-dark); }
+.label { margin-bottom: 0.15rem; font-family: var(--font-body); font-size: var(--fs-sm); font-weight: 600; letter-spacing: 0; color: var(--color-text-muted); }
+.value { display: block; font-family: var(--font-display); font-size: var(--fs-xl); line-height: 1.35; color: var(--color-primary); }
+.value address { font-style: normal; white-space: pre-line; }
+a.value { text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 5px; transition: text-decoration-color var(--duration-base) ease; }
+a.value:hover { text-decoration-color: var(--color-accent); }
+.hint { margin-top: 0.2rem; font-size: var(--fs-sm); color: var(--color-text-muted); }

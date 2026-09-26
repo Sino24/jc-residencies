@@ -1,0 +1,6 @@
+.grid { display: grid; gap: 4rem; align-items: start; }
+.booking { min-width: 0; scroll-margin-top: calc(var(--navbar-height-scrolled) + 1rem); }
+
+@media (min-width: 1000px) {
+  .grid { grid-template-columns: 5fr 7fr; gap: 5rem; }
+}

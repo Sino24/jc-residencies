@@ -1,0 +1,17 @@
+.layout { display: grid; gap: 2.5rem; align-items: start; }
+.main { display: flex; flex-direction: column; gap: 3rem; min-width: 0; }
+.block { display: flex; flex-direction: column; gap: 1.25rem; }
+.h2 { font-size: var(--fs-2xl); }
+
+.features { display: grid; gap: 0.6rem 2rem; margin-top: 0.5rem; }
+.features li { display: flex; align-items: center; gap: 0.7rem; }
+.features svg { flex-shrink: 0; color: var(--color-success); }
+
+.side { min-width: 0; }
+.back { margin-top: 2.5rem; }
+
+@media (min-width: 640px) { .features { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) {
+  .layout { grid-template-columns: minmax(0, 1fr) 380px; gap: 3.5rem; }
+  .side { position: sticky; top: calc(var(--navbar-height-scrolled) + 1.5rem); }
+}

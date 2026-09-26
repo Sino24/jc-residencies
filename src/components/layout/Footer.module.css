@@ -1,0 +1,166 @@
+.footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  padding-top: clamp(4rem, 7vw, 6.5rem);
+  color: rgba(255, 255, 255, 0.72);
+
+  background: linear-gradient(180deg, rgba(10, 10, 12, 0.97) 0%, rgba(10, 10, 12, 1) 100%);
+  border-top: 1px solid rgba(201, 162, 39, 0.22);
+}
+
+/* Faint gold glow sitting behind the brand column — the same premium
+   device as the navbar's gold hairline, just softened into a wash */
+.footer::before {
+  content: "";
+  position: absolute;
+  top: -220px;
+  left: -120px;
+  width: 480px;
+  height: 480px;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(201, 162, 39, 0.16) 0%, transparent 70%);
+}
+
+.grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 2.75rem;
+  padding-bottom: 3.5rem;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+  max-width: 26rem;
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+}
+
+.heading {
+  position: relative;
+  margin-bottom: 1.35rem;
+  padding-bottom: 0.75rem;
+
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #f2dfa0;
+}
+
+/* Short gold rule under each column heading, echoing the navbar's
+   scrolled hairline */
+.heading::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 28px;
+  height: 1.5px;
+  background: linear-gradient(90deg, #c9a227, #e8cd7a);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  font-size: var(--fs-sm);
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+}
+
+.row svg {
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+  color: #c9a227;
+}
+
+.row address {
+  font-style: normal;
+}
+
+.link {
+  color: rgba(255, 255, 255, 0.72);
+  transition: color var(--duration-fast) ease;
+}
+
+.link:hover {
+  color: #e8cd7a;
+}
+
+.socials {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.socials a {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+
+  color: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(201, 162, 39, 0.28);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.03);
+
+  transition:
+    background-color var(--duration-fast) ease,
+    color var(--duration-fast) ease,
+    border-color var(--duration-fast) ease,
+    transform var(--duration-fast) ease;
+}
+
+.socials a:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #e8cd7a 0%, #c9a227 60%, #a9821b 100%);
+  border-color: transparent;
+  color: #17140a;
+}
+
+.bottom {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+
+  padding-block: 1.5rem;
+
+  font-size: var(--fs-xs);
+  color: rgba(255, 255, 255, 0.45);
+
+  border-top: 1px solid rgba(201, 162, 39, 0.16);
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 1000px) {
+  .grid {
+    grid-template-columns: 1.5fr 0.8fr 1.2fr 1.4fr;
+    gap: 3rem;
+  }
+
+  .brand {
+    grid-column: auto;
+  }
+}

@@ -1,0 +1,33 @@
+/* Local copy: CSS Modules scope bare animation-name identifiers, so a name
+   referencing the global animations.css keyframes would silently no-op. */
+@keyframes shimmer { to { background-position: -200% 0; } }
+
+.wrap {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--color-surface-alt);
+}
+.loading {
+  background: linear-gradient(90deg, var(--color-surface-alt) 25%, #f3f2ec 50%, var(--color-surface-alt) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s linear infinite;
+}
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.loaded { opacity: 1; }
+.fallback {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--color-accent-light);
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary-light));
+}

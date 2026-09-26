@@ -1,0 +1,12 @@
+.list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); gap: 1rem 1.5rem; }
+.item { display: flex; align-items: center; gap: 0.85rem; font-size: var(--fs-sm); font-weight: 500; }
+.icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  color: var(--color-primary);
+  border: 1px solid var(--color-border-strong);
+  border-radius: 50%;
+}

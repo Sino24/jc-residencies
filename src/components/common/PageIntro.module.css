@@ -1,0 +1,4 @@
+.intro { padding-block: clamp(2rem, 2vw + 1.5rem, 3rem) clamp(1.25rem, 2vw, 2rem); }
+.inner { display: flex; flex-direction: column; gap: 0.6rem; max-width: 56rem; }
+.title { font-size: var(--fs-h2); }
+.subtitle { font-size: var(--fs-lg); color: var(--color-text-muted); max-width: 56ch; }

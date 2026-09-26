@@ -1,0 +1,14 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 44rem;
+  margin-bottom: clamp(2rem, 4vw, 3.25rem);
+}
+.center { margin-inline: auto; align-items: center; text-align: center; }
+.title { text-wrap: balance; }
+.subtitle { font-size: var(--fs-lg); color: var(--color-text-muted); }
+.center .subtitle { margin-inline: auto; }
+
+.light .title { color: #fff; }
+.light .subtitle { color: rgba(255, 255, 255, 0.75); }

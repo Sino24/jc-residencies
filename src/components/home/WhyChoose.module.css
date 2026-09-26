@@ -1,0 +1,14 @@
+.grid { display: grid; gap: 1rem 4rem; align-items: start; }
+.grid .title { margin-bottom: 1.5rem; }
+
+.list { display: grid; }
+.item { display: flex; gap: 1.25rem; padding-block: 1.6rem; border-top: 1px solid rgba(255, 255, 255, 0.16); }
+.item:last-child { border-bottom: 1px solid rgba(255, 255, 255, 0.16); }
+.item > svg { flex-shrink: 0; margin-top: 0.2rem; color: var(--color-accent-light); }
+.itemTitle { margin-bottom: 0.35rem; font-size: var(--fs-xl); color: #fff; }
+.item p { color: rgba(255, 255, 255, 0.72); }
+
+@media (min-width: 960px) {
+  .grid { grid-template-columns: 5fr 6fr; }
+  .grid .title { position: sticky; top: calc(var(--navbar-height-scrolled) + 2rem); }
+}

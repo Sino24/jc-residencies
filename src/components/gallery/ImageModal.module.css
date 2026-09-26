@@ -1,0 +1,54 @@
+/* Local copies: CSS Modules scope bare animation-name identifiers, so a
+   name referencing the global animations.css keyframes silently no-ops. */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: none; }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem 2rem;
+  background: rgba(10, 10, 12, 0.94);
+  animation: fadeIn 0.3s ease both;
+}
+
+.figure { display: flex; flex-direction: column; gap: 0.9rem; max-width: min(1100px, 100%); }
+.image {
+  max-width: 100%;
+  max-height: calc(100vh - 11rem);
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  animation: scaleIn 0.4s var(--ease-out) both;
+}
+.caption { display: flex; justify-content: space-between; gap: 1rem; font-size: var(--fs-sm); color: rgba(255, 255, 255, 0.8); }
+.count { flex-shrink: 0; color: var(--color-accent-light); }
+
+.close, .nav {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transition: background-color var(--duration-fast) ease, color var(--duration-fast) ease;
+}
+.close:hover, .nav:hover { background: var(--color-accent-light); color: var(--color-primary-dark); }
+.close { top: 1rem; right: 1rem; }
+.nav { top: 50%; margin-top: -23px; }
+.prev { left: 1rem; }
+.next { right: 1rem; }
+
+@media (max-width: 640px) {
+  .nav { top: auto; bottom: 1rem; margin: 0; }
+  .prev { left: calc(50% - 60px); }
+  .next { right: calc(50% - 60px); }
+  .overlay { padding-bottom: 5rem; }
+}

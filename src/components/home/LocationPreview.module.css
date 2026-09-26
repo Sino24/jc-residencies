@@ -1,0 +1,9 @@
+.grid { display: grid; gap: 2.5rem; align-items: stretch; }
+.body { display: flex; flex-direction: column; gap: 1.5rem; }
+.address { display: flex; gap: 0.75rem; font-family: var(--font-display); font-size: var(--fs-xl); line-height: 1.4; color: var(--color-primary); }
+.address svg { flex-shrink: 0; margin-top: 0.35rem; color: var(--color-accent-dark); }
+.address address { font-style: normal; white-space: pre-line; }
+.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.map { min-height: 380px; }
+
+@media (min-width: 960px) { .grid { grid-template-columns: 5fr 6fr; gap: 4rem; } }
