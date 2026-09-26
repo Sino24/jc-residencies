@@ -11,11 +11,22 @@
   background: transparent;
   border-bottom: 1px solid transparent;
 
+  /* Forces its own compositing layer up front, so the blur added by
+     .scrolled has a layer ready to render into immediately instead of
+     being promoted on the fly — the promote-on-toggle path is what
+     drops silently in production builds on some browsers/GPUs. */
+  isolation: isolate;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+
+  /* backdrop-filter is deliberately left out of this list: transitioning
+     it (rather than swapping it outright) is the other half of the
+     production bug — several engines just skip the blur when it's
+     driven by a transition instead of applied directly. */
   transition:
     height var(--duration-base) var(--ease-out),
     background-color var(--duration-base) ease,
-    border-color var(--duration-base) ease,
-    backdrop-filter var(--duration-base) ease;
+    border-color var(--duration-base) ease;
 }
 
 
@@ -28,10 +39,19 @@
   height: var(--navbar-height-scrolled);
 
   background: rgba(10, 10, 12, 0.82);
-  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
 
   border-bottom-color: rgba(255, 255, 255, 0.14);
+}
+
+/* Browsers/embedded webviews with no backdrop-filter support at all
+   (blur silently does nothing, tint alone still shows) get a slightly
+   more opaque tint so the bar still reads cleanly without the blur. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .scrolled {
+    background: rgba(10, 10, 12, 0.94);
+  }
 }
 
 
