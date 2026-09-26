@@ -9,7 +9,16 @@ export const property: Property = {
   name: "JC Residencies",
   shortName: "JC",
   tagline: "Comfortable stays, warm welcome",
-  currency: { code: "INR", locale: "en-IN" },
+
+  currency: {
+    code: "INR",
+    locale: "en-IN",
+  },
+
+  location: {
+    latitude: 9.699434,
+    longitude: 76.656151,
+  },
 
   hero: {
     eyebrow: "Rooms you can book directly",
@@ -23,11 +32,14 @@ export const property: Property = {
   intro: {
     eyebrow: "About the residency",
     title: "A calm place to stay, run by people who live nearby",
+
     paragraphs: [
       "JC Residencies is a family-run residence built for guests who want a comfortable room without the fuss of a large hotel. Every room is cleaned daily, every bed is freshly made, and the team at the front desk knows the area well.",
       "Whether you are here for work, a family visit or a few days of rest, we keep things simple: honest prices, clear information and quick answers when you get in touch.",
     ],
+
     images: images.intro,
+
     highlights: [
       {
         icon: "bed",
@@ -54,12 +66,15 @@ export const property: Property = {
 
   about: {
     title: "Our story",
+
     story: [
       "JC Residencies began with a simple idea: guests should feel looked after from the moment they arrive. We started with a handful of rooms and grew by listening to what visitors asked for — better beds, reliable hot water, a quiet corner to work, a place to park.",
       "Today the residence offers a range of rooms, each kept to the same standard. Our team handles everything in person, so the person who answers your message is the person who prepares your room.",
       "We do not run an online booking engine. You tell us your dates, we confirm availability the same day, and you pay when you arrive. It keeps prices fair and the process human.",
     ],
+
     image: images.about,
+
     values: [
       {
         icon: "sparkles",
@@ -80,6 +95,7 @@ export const property: Property = {
           "The rate we quote is the rate you pay. No hidden charges.",
       },
     ],
+
     suitableFor: [
       "Business travellers",
       "Families",
@@ -88,6 +104,7 @@ export const property: Property = {
       "Long stays",
       "Medical visits",
     ],
+
     facilities: [
       "Air-conditioned rooms",
       "Free Wi-Fi throughout",
@@ -102,8 +119,10 @@ export const property: Property = {
 
   whyChoose: {
     title: "Why guests book with us directly",
+
     subtitle:
       "No agents, no platform fees. You talk to the residence and get the best rate.",
+
     items: [
       {
         icon: "wallet",
@@ -133,14 +152,32 @@ export const property: Property = {
   },
 
   atAGlance: [
-    { label: "Check-in", value: "From 12:00 PM" },
-    { label: "Check-out", value: "By 11:00 AM" },
-    { label: "Reception", value: "24 hours" },
-    { label: "Payment", value: "At the property" },
-    { label: "Parking", value: "Free, on site" },
+    {
+      label: "Check-in",
+      value: "From 12:00 PM",
+    },
+    {
+      label: "Check-out",
+      value: "By 11:00 AM",
+    },
+    {
+      label: "Reception",
+      value: "24 hours",
+    },
+    {
+      label: "Payment",
+      value: "At the property",
+    },
+    {
+      label: "Parking",
+      value: "Free, on site",
+    },
   ],
 
-  timings: { checkIn: "12:00 PM", checkOut: "11:00 AM" },
+  timings: {
+    checkIn: "12:00 PM",
+    checkOut: "11:00 AM",
+  },
 
   policies: [
     "A valid photo ID is required for every guest at check-in.",
