@@ -3,7 +3,7 @@ import type { MouseEventHandler, ReactNode } from "react";
 import { cx } from "@/utils/cx";
 import styles from "./Button.module.css";
 
-type Variant = "primary" | "secondary" | "outline" | "outlineLight" | "whatsapp" | "ghost";
+type Variant = "primary" | "premium" | "secondary" | "outline" | "outlineLight" | "whatsapp" | "ghost";
 type Size = "sm" | "md" | "lg";
 
 interface ButtonProps {

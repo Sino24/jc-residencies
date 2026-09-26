@@ -18,32 +18,25 @@ export default function Navbar(): JSX.Element {
   const scrolled = useScrolled(40);
   const [menuOpen, setMenuOpen] = useState(false);
   const { pathname } = useLocation();
+  const isHome = pathname === "/";
 
   // Close mobile menu whenever the route changes
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
 
+  // Only Home has a hero dark enough for the transparent-over-hero look.
+  // Every other page has nothing behind the nav to sit on, so it renders
+  // in the same solid/blurred state used for "scrolled" from the start.
+  const solid = scrolled || !isHome;
+
   return (
     <>
-      <header
-        className={cx(
-          styles.header,
-          scrolled && styles.scrolled
-        )}
-      >
+      <header className={cx(styles.header, solid && styles.scrolled)}>
         <Container className={styles.inner}>
           {/* Logo */}
-          <NavLink
-            to="/"
-            className={styles.logo}
-            aria-label={`${property.name} home`}
-          >
-            <img
-              src={logo}
-              alt={property.name}
-              className={styles.logoImage}
-            />
+          <NavLink to="/" className={styles.logo} aria-label={`${property.name} home`}>
+            <img src={logo} alt={property.name} className={styles.logoImage} />
             <span className={styles.brandName}>{property.name}</span>
           </NavLink>
 
@@ -54,12 +47,7 @@ export default function Navbar(): JSX.Element {
                 key={item.path}
                 to={item.path}
                 end={item.path === "/"}
-                className={({ isActive }) =>
-                  cx(
-                    styles.link,
-                    isActive && styles.active
-                  )
-                }
+                className={({ isActive }) => cx(styles.link, isActive && styles.active)}
               >
                 {item.label}
               </NavLink>
@@ -68,11 +56,7 @@ export default function Navbar(): JSX.Element {
 
           {/* Actions */}
           <div className={styles.actions}>
-            <Button
-              to={bookNowPath}
-              size="sm"
-              className={styles.book}
-            >
+            <Button to={bookNowPath} variant="premium" size="sm" className={styles.book}>
               Book now
             </Button>
 
@@ -84,19 +68,13 @@ export default function Navbar(): JSX.Element {
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
             >
-              <Menu
-                size={26}
-                strokeWidth={1.6}
-              />
+              <Menu size={26} strokeWidth={1.6} />
             </button>
           </div>
         </Container>
       </header>
 
-      <MobileMenu
-        open={menuOpen}
-        onClose={() => setMenuOpen(false)}
-      />
+      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
     </>
   );
 }

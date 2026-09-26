@@ -10,6 +10,7 @@
   border: 1px solid var(--glass-border-on-light);
   border-radius: var(--radius-md);
   box-shadow: var(--glass-shadow);
+  min-height: auto;
 }
 .field { display: flex; flex-direction: column; gap: 0.3rem; padding: 0.25rem 0.5rem; }
 .field span { font-size: var(--fs-xs); font-weight: 600; color: var(--color-text-muted); }

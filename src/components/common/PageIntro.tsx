@@ -1,5 +1,4 @@
 import Container from "./Container";
-import Reveal from "./Reveal";
 import styles from "./PageIntro.module.css";
 
 interface PageIntroProps {
@@ -7,19 +6,18 @@ interface PageIntroProps {
   subtitle?: string;
 }
 
-/**
- * Plain, no-banner page title used at the top of inner pages — just a
- * heading and an optional line of subtext, no image or breadcrumb.
- */
+// Rendered at the top of every page except Home (Home uses <Hero /> instead).
+// The "page-intro" class (plain, not CSS-module-scoped) is a marker that
+// global.css uses to also beige-out the .section content that follows it —
+// see the ".page-intro ~ .section" rule in global.css. Because Home never
+// renders this component, that rule can never affect Home.
 export default function PageIntro({ title, subtitle }: PageIntroProps) {
   return (
-    <div className={styles.intro}>
+    <section className={`${styles.intro} page-intro`}>
       <Container>
-        <Reveal className={styles.inner}>
-          <h1 className={styles.title}>{title}</h1>
-          {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
-        </Reveal>
+        <h1 className={styles.title}>{title}</h1>
+        {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
       </Container>
-    </div>
+    </section>
   );
 }

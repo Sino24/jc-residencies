@@ -5,30 +5,39 @@
   --color-black: #0a0a0c;
   --color-ink: #101114;
   --color-white: #ffffff;
-  --color-paper: #ffffff;
-  --color-cloud: #f6f9fc;
-  --color-cloud-dark: #eaf1f8;
+
+  /* Page surface — a warm, subtle off-white instead of flat white */
+  --color-paper: #faf8f4;
+  --color-cloud: #f5eede;
+  --color-cloud-dark: #e7e1d5;
+
   --color-text: #0a0a0c;
-  --color-text-muted: #705e5b;
+  --color-text-muted: #6f6a63;
   --color-border: rgba(10, 10, 12, 0.1);
   --color-border-mid: rgba(10, 10, 12, 0.16);
 
-  /* Gold accent — lifted directly from the navbar */
-  --color-gold: #c9a227;
-  --color-gold-light: #e8cd7a;
-  --color-gold-dark: #a9821b;
-  --color-gold-ink: #17140a;
-  --gold-border-soft: rgba(201, 162, 39, 0.18);
-  --gold-border-mid: rgba(201, 162, 39, 0.28);
-  --gold-border-strong: rgba(201, 162, 39, 0.5);
-  --gold-glow: rgba(201, 162, 39, 0.35);
+  /* Platinum accent — light, cool-neutral shimmer used against dark
+     surfaces (navbar, dark sections), replacing the old gold accent */
+  --color-platinum: #d9d9dd;
+  --color-platinum-light: #f1f1f3;
+  --color-platinum-dark: #9a9aa1;
+  --color-platinum-ink: #101114;
+  --platinum-border-soft: rgba(255, 255, 255, 0.14);
+  --platinum-border-mid: rgba(255, 255, 255, 0.24);
+  --platinum-border-strong: rgba(255, 255, 255, 0.48);
+
+  /* Ink accent — dark, used for the same "premium hairline" language
+     wherever it sits on light/beige surfaces instead of dark ones */
+  --accent-border-soft: rgba(10, 10, 12, 0.12);
+  --accent-border-mid: rgba(10, 10, 12, 0.22);
+  --accent-border-strong: rgba(10, 10, 12, 0.5);
 
   /* Navbar's dark glass surface, reused wherever a dark/glass panel appears */
   --surface-dark-start: rgba(10, 10, 12, 0.92);
   --surface-dark-end: rgba(10, 10, 12, 0.82);
   --text-on-dark: rgba(255, 255, 255, 0.65);
   --text-on-dark-strong: #ffffff;
-  --text-on-dark-gold: #f2dfa0;
+  --text-on-dark-shine: #eceef0;
 
   --glass-bg-on-light: rgba(255, 255, 255, 0.5);
   --glass-bg-on-light-strong: rgba(255, 255, 255, 0.72);
@@ -37,7 +46,7 @@
 
   --glass-bg-on-dark: rgba(20, 20, 24, 0.38);
   --glass-bg-on-dark-strong: rgba(20, 20, 24, 0.62);
-  --glass-border-on-dark: var(--gold-border-soft);
+  --glass-border-on-dark: var(--platinum-border-soft);
   --glass-highlight-on-dark: rgba(255, 255, 255, 0.5);
 
   --glass-blur-sm: 16px;
@@ -45,13 +54,6 @@
   --glass-blur-lg: 40px;
   --glass-saturate: 180%;
   --glass-brightness: 1.06;
-
-  --glass-shadow:
-    0 1px 1px rgba(10, 10, 12, 0.06),
-    0 8px 24px -8px rgba(10, 10, 12, 0.22),
-    0 24px 48px -16px rgba(10, 10, 12, 0.18);
-
-  --glass-inset-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.4);
 
   --font-display: "Manrope", "Inter", "Segoe UI", sans-serif;
   --font-body: "Inter", "Manrope", "Segoe UI", sans-serif;
@@ -79,15 +81,15 @@
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
   --transition: 220ms var(--ease);
 
-  /* Accent now points at gold instead of flat black, so buttons,
-     focus rings, and highlighted text pick up the navbar's palette */
+  /* Accent now stays inside the black/white system: black for focus
+     rings, hairlines and highlighted text on light surfaces */
   --color-primary: var(--color-black);
   --color-primary-dark: var(--color-ink);
   --color-primary-light: #2a2c31;
-  --color-accent: var(--color-gold);
-  --color-accent-dark: var(--color-gold-dark);
-  --color-accent-light: var(--color-gold-light);
-  --color-bg: var(--color-white);
+  --color-accent: var(--color-black);
+  --color-accent-dark: #000000;
+  --color-accent-light: #3a3a3d;
+  --color-bg: var(--color-paper);
   --color-surface: var(--color-white);
   --color-surface-alt: var(--color-cloud);
   --color-text-inverse: var(--color-white);
@@ -113,16 +115,12 @@
 
   --radius-lg: 24px;
   --radius-pill: 999px;
+  --radius-btn: 10px;
 
   --ease-out: var(--ease);
   --duration-fast: 180ms;
   --duration-base: 220ms;
   --duration-slow: 480ms;
-
-  --shadow-sm: 0 1px 2px rgba(10, 10, 12, 0.04);
-  --shadow-md: 0 12px 32px -16px rgba(10, 10, 12, 0.1);
-  --shadow-lg: 0 20px 40px -16px rgba(10, 10, 12, 0.16);
-  --shadow-xl: 0 32px 64px -24px rgba(10, 10, 12, 0.28);
 
   --z-navbar: 100;
   --z-menu: 200;
@@ -150,8 +148,8 @@ h4 { font-size: 1.15rem; font-weight: 600; }
 
 p { max-width: 68ch; }
 
-/* Eyebrow — gold hairline + gold text, matching the navbar's gold
-   accent language instead of flat ink */
+/* Eyebrow — ink hairline + ink text, the same "premium hairline"
+   device as before, now in the black/white system */
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -159,32 +157,31 @@ p { max-width: 68ch; }
   font-size: var(--fs-eyebrow);
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-gold-dark);
+  color: var(--color-black);
   font-weight: 700;
   margin-bottom: var(--space-2);
   padding: 0.3rem 0.85rem;
   background: var(--color-cloud);
-  border: 1px solid var(--gold-border-mid);
+  border: 1px solid var(--accent-border-mid);
   border-radius: var(--radius-pill);
   width: fit-content;
 }
 
-/* Short gold accent rule before the eyebrow text — same "premium
-   hairline" device as the navbar's ::after underline */
+/* Short ink accent rule before the eyebrow text */
 .eyebrow::before {
   content: "";
   display: block;
   width: 14px;
   height: 1px;
-  background: linear-gradient(90deg, var(--color-gold), var(--color-gold-light));
+  background: linear-gradient(90deg, var(--color-black), var(--color-text-muted));
   opacity: 0.8;
 }
 
 /* Eyebrow variant for use on dark/glass sections */
 .eyebrow-on-dark {
-  color: var(--text-on-dark-gold);
+  color: var(--text-on-dark-shine);
   background: rgba(255, 255, 255, 0.06);
-  border-color: var(--gold-border-mid);
+  border-color: var(--platinum-border-mid);
 }
 
 .lead {
@@ -196,23 +193,23 @@ p { max-width: 68ch; }
 .text-muted { color: var(--color-text-muted); }
 
 /* Underline-grow link, generalized from the navbar's .link treatment
-   so any inline text link elsewhere can use the same gold-underline feel */
+   so any inline text link elsewhere can use the same ink-underline feel */
 .link-underline {
   position: relative;
   padding-block: 0.15rem;
   color: inherit;
-  background: linear-gradient(90deg, var(--color-gold), var(--color-gold-light))
+  background: linear-gradient(90deg, var(--color-black), var(--color-text-muted))
     left bottom / 0 1.5px no-repeat;
   transition:
     color var(--duration-fast) ease,
     background-size var(--duration-base) var(--ease-out);
 }
 .link-underline:hover {
-  color: var(--color-gold-dark);
+  color: var(--color-black);
   background-size: 100% 1.5px;
 }
 
-/* Nav-style link (uppercase, letter-spaced, gold underline-grow),
+/* Nav-style link (uppercase, letter-spaced, platinum underline-grow),
    for reuse anywhere the navbar's .link/.active treatment is needed */
 .link-nav {
   position: relative;
@@ -222,7 +219,7 @@ p { max-width: 68ch; }
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--text-on-dark);
-  background: linear-gradient(90deg, var(--color-gold), var(--color-gold-light))
+  background: linear-gradient(90deg, #ffffff, var(--color-platinum))
     left bottom / 0 1.5px no-repeat;
   transition:
     color var(--duration-fast) ease,
@@ -233,7 +230,7 @@ p { max-width: 68ch; }
   background-size: 100% 1.5px;
 }
 .link-nav.active {
-  color: var(--text-on-dark-gold);
+  color: var(--text-on-dark-shine);
   background-size: 100% 1.5px;
 }
 
@@ -265,13 +262,6 @@ p { max-width: 68ch; }
 
 @keyframes shimmer {
   to { background-position: -200% 0; }
-}
-
-/* Diagonal light sweep — the same device as the navbar's specular
-   highlight, generalized as a reusable animation for buttons and cards */
-@keyframes sheen {
-  from { transform: translateX(-120%) rotate(8deg); }
-  to   { transform: translateX(220%) rotate(8deg); }
 }
 
 .page-enter { animation: fadeIn 0.45s ease both; }
@@ -335,14 +325,14 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 p, figure, dl, dd { margin: 0; }
 input, select, textarea { font: inherit; color: inherit; }
 
-/* Gold focus ring, matching the accent token swap above */
+/* Black focus ring, matching the accent token swap above */
 :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 3px;
   border-radius: var(--radius-sm);
 }
 
-::selection { background: var(--color-gold); color: var(--color-gold-ink); }
+::selection { background: var(--color-black); color: var(--color-white); }
 
 .sr-only {
   position: absolute;
@@ -363,7 +353,7 @@ input, select, textarea { font: inherit; color: inherit; }
   color: var(--color-white);
   font-weight: 600;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--gold-border-mid);
+  border: 1px solid var(--platinum-border-mid);
   transform: translateY(-200%);
 }
 .skip-link:focus { transform: none; }
@@ -382,99 +372,55 @@ input, select, textarea { font: inherit; color: inherit; }
   padding-inline: var(--container-pad);
 }
 
-/* Header is a solid, always-visible bar again, so pages just reserve
-   space for it like normal — no transparent-over-hero workaround needed */
-#main { padding-top: var(--navbar-height); }
+/* Header floats transparently over the hero, so #main has no top
+   padding — the hero fills in behind it. Home is the only route with
+   a hero dark enough for that; every other route starts with
+   <PageIntro>, which reserves the nav's height itself (see
+   PageIntro.module.css) — no route detection needed here. */
+#main { padding-top: 0; }
+
+/* Any plain .section that follows a PageIntro picks up the same beige
+   tone instead of the near-white body background, so the intro banner
+   and the content under it read as one continuous page. Only non-home
+   pages render PageIntro, so this can never affect Home. .section-alt
+   already uses this color and is left alone to avoid a doubled-up look. */
+.page-intro ~ .section:not(.section-alt) {
+  background: var(--color-cloud);
+}
 .section { padding-block: var(--section-space); }
 .section-alt { background: var(--color-surface-alt); }
 
-/* Dark section now uses the navbar's own gradient + gold hairline top
-   border, instead of a flat black fill, so the two feel like one system */
 .section-dark {
-  background: linear-gradient(180deg, var(--surface-dark-start) 0%, var(--surface-dark-end) 100%);
+  background: var(--color-black);
   color: var(--color-text-inverse);
-  border-top: 1px solid var(--gold-border-soft);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .h-full { height: 100%; }
 
-* { scrollbar-width: thin; scrollbar-color: var(--gold-border-mid) transparent; }
+* { scrollbar-width: thin; scrollbar-color: var(--color-border-strong) transparent; }
 
-/* ---------- Liquid glass — dark surface, tuned to the navbar's own
-   blur/saturate recipe and gold hairline border ---------- */
+/* ---------- Glass panel — dark surface, flat black instead of a
+   gradient, blur kept for the frosted effect only ---------- */
 .glass {
   position: relative;
-  isolation: isolate;
-  background: linear-gradient(180deg, var(--surface-dark-start) 0%, var(--surface-dark-end) 100%);
+  background: var(--color-black);
   backdrop-filter: blur(20px) saturate(160%);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid var(--glass-border-on-dark);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--radius-pill);
-  box-shadow: var(--glass-shadow), var(--glass-inset-highlight);
   overflow: hidden;
 }
 
-.glass::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background: linear-gradient(
-    135deg,
-    var(--glass-highlight-on-dark) 0%,
-    transparent 30%,
-    transparent 70%,
-    rgba(255, 255, 255, 0.08) 100%
-  );
-  opacity: 0.35;
-  mix-blend-mode: overlay;
-}
-
-/* Gold hairline that brightens on scroll/hover — reused from the
-   navbar's ::after so any .glass panel can opt in the same way */
-.glass::after {
-  content: "";
-  position: absolute;
-  inset: auto 0 -1px 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent 0%, var(--gold-border-strong) 50%, transparent 100%);
-  opacity: 0;
-  transition: opacity var(--duration-base) ease;
-}
-.glass.is-active::after,
-.glass:hover::after {
-  opacity: 1;
-}
-
-/* ---------- Liquid glass — light surface ---------- */
+/* ---------- Glass panel — light surface ---------- */
 .glass-light {
   position: relative;
-  isolation: isolate;
   background: var(--glass-bg-on-light);
-  backdrop-filter: blur(var(--glass-blur-md)) saturate(var(--glass-saturate)) brightness(var(--glass-brightness));
-  -webkit-backdrop-filter: blur(var(--glass-blur-md)) saturate(var(--glass-saturate)) brightness(var(--glass-brightness));
+  backdrop-filter: blur(var(--glass-blur-md)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur-md)) saturate(var(--glass-saturate));
   border: 1px solid var(--glass-border-on-light);
   border-radius: var(--radius-md);
-  box-shadow: var(--glass-shadow), var(--glass-inset-highlight);
   overflow: hidden;
-}
-
-.glass-light::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background: linear-gradient(
-    135deg,
-    var(--glass-highlight-on-light) 0%,
-    transparent 30%,
-    transparent 70%,
-    rgba(255, 255, 255, 0.15) 100%
-  );
-  opacity: 0.5;
-  mix-blend-mode: overlay;
 }
 
 .glass-flat-sm {
@@ -487,117 +433,23 @@ input, select, textarea { font: inherit; color: inherit; }
   -webkit-backdrop-filter: blur(var(--glass-blur-lg)) saturate(var(--glass-saturate));
 }
 
-/* ---------- Buttons — primary is now the navbar's gold gradient
-   (matching .book exactly), with the same sweeping sheen on hover ---------- */
-.btn {
-  position: relative;
-  isolation: isolate;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.85rem 1.75rem;
-  font-size: var(--fs-sm);
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  white-space: nowrap;
-  border-radius: var(--radius-pill);
-  border: 1px solid transparent;
-  overflow: hidden;
-  transition:
-    transform var(--duration-fast) ease,
-    box-shadow var(--duration-base) ease,
-    background-color var(--duration-fast) ease,
-    filter var(--duration-fast) ease;
-}
-.btn:active { transform: translateY(0); }
+/* ---------- Buttons ----------
+   Button styling (primary/premium/secondary/outline/whatsapp/ghost)
+   now lives entirely in Button.module.css, scoped to the Button
+   component. The old global .btn / .btn-primary / .btn-ghost block
+   was a second, unscoped copy of the same styles and is removed —
+   it was the other half of the navbar "Book now" button conflict.
+   Use the <Button> component everywhere instead of these class names. */
 
-.btn::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: 0;
-  width: 30%;
-  height: 200%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.35),
-    transparent
-  );
-  transform: translateX(-120%) rotate(8deg);
-  pointer-events: none;
-}
-.btn:hover::after {
-  animation: sheen var(--duration-slow) var(--ease-out) 1;
-}
-
-/* Gold gradient CTA — identical recipe to the navbar's .book button */
-.btn-primary {
-  background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold) 60%, var(--color-gold-dark) 100%);
-  color: var(--color-gold-ink);
-  border-color: rgba(255, 255, 255, 0.25);
-  box-shadow:
-    0 2px 10px var(--gold-glow),
-    inset 0 1px 0 rgba(255, 255, 255, 0.4);
-}
-.btn-primary:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.05);
-  box-shadow:
-    0 4px 16px rgba(201, 162, 39, 0.45),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
-}
-
-/* Dark variant keeps the navbar's own charcoal fill, with a gold
-   hairline border instead of a flat black-on-black look */
-.btn-primary-dark {
-  background: linear-gradient(180deg, var(--surface-dark-start) 0%, var(--surface-dark-end) 100%);
-  color: var(--color-white);
-  border-color: var(--gold-border-soft);
-  box-shadow:
-    0 1px 1px rgba(10, 10, 12, 0.08),
-    0 8px 20px -8px rgba(10, 10, 12, 0.3);
-}
-.btn-primary-dark:hover {
-  transform: translateY(-1px);
-  border-color: var(--gold-border-mid);
-  box-shadow:
-    0 1px 1px rgba(10, 10, 12, 0.08),
-    0 14px 30px -8px rgba(10, 10, 12, 0.42);
-}
-
-.btn-ghost {
-  background: transparent;
-  color: currentColor;
-  border-color: var(--glass-border-on-dark);
-}
-.btn-ghost:hover {
-  background: rgba(201, 162, 39, 0.12);
-  border-color: var(--gold-border-mid);
-}
-
-.btn-sm { padding: 0.6rem 1.25rem; font-size: var(--fs-xs); }
-.btn-lg { padding: 1rem 2.25rem; font-size: var(--fs-md); }
-
-/* ---------- Cards — two-tone shadow, gentle lift, gold hairline glow
-   border on hover (instead of neutral gray) so hovered cards read as
-   "lit from above" the same way the navbar's scrolled state does ---------- */
 .card {
   position: relative;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  transition:
-    transform var(--duration-base) var(--ease-out),
-    box-shadow var(--duration-base) ease,
-    border-color var(--duration-base) ease;
+  transition: border-color var(--duration-base) ease;
 }
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
-  border-color: var(--gold-border-mid);
+  border-color: var(--accent-border-mid);
 }
 
 .divider {
@@ -606,10 +458,8 @@ input, select, textarea { font: inherit; color: inherit; }
   border: 0;
 }
 
-/* Gold divider variant for dark/glass sections — the exact gradient
-   used by the navbar's ::after hairline */
 .divider-on-dark {
   height: 1px;
   border: 0;
-  background: linear-gradient(90deg, transparent 0%, var(--gold-border-strong) 50%, transparent 100%);
+  background: rgba(255, 255, 255, 0.16);
 }

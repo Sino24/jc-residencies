@@ -7,60 +7,36 @@
 
   color: #fff;
 
-  background: linear-gradient(
-    180deg,
-    rgba(10, 10, 12, 0.96) 0%,
-    rgba(10, 10, 12, 0.9) 100%
-  );
-
-  backdrop-filter: blur(20px) saturate(160%);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
-
-  border-bottom: 1px solid rgba(201, 162, 39, 0.22);
-
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  /* Invisible at the top, sitting directly over the hero */
+  background: transparent;
+  border-bottom: 1px solid transparent;
 
   transition:
     height var(--duration-base) var(--ease-out),
-    box-shadow var(--duration-base) ease,
-    border-color var(--duration-base) ease;
-}
-
-/* Subtle gold hairline that brightens on scroll — reads as a premium detail */
-.header::after {
-  content: "";
-  position: absolute;
-  inset: auto 0 -1px 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(201, 162, 39, 0.5) 50%,
-    transparent 100%
-  );
-  opacity: 0;
-  transition: opacity var(--duration-base) ease;
-}
-
-.scrolled::after {
-  opacity: 1;
+    background-color var(--duration-base) ease,
+    border-color var(--duration-base) ease,
+    backdrop-filter var(--duration-base) ease;
 }
 
 
 /* -------------------------------------------------------------------------- */
-/* Scrolled navbar                                                            */
+/* Solid + blurred state — used once scrolled on Home, and from the start     */
+/* on every other page (applied in Navbar.tsx, not detectable in CSS alone)   */
 /* -------------------------------------------------------------------------- */
 
 .scrolled {
   height: var(--navbar-height-scrolled);
 
-  border-bottom-color: rgba(201, 162, 39, 0.32);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  background: rgba(10, 10, 12, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border-bottom-color: rgba(255, 255, 255, 0.14);
 }
 
 
 /* -------------------------------------------------------------------------- */
-/* Inner                                                                        */
+/* Inner                                                                     */
 /* -------------------------------------------------------------------------- */
 
 .inner {
@@ -75,7 +51,7 @@
 
 
 /* -------------------------------------------------------------------------- */
-/* Logo — deliberately compact, so it reads as a mark rather than a banner     */
+/* Logo — deliberately compact, so it reads as a mark rather than a banner  */
 /* -------------------------------------------------------------------------- */
 
 .logo {
@@ -117,22 +93,12 @@
 
   object-fit: contain;
 
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.4));
-
-  transition:
-    width var(--duration-base) var(--ease-out),
-    opacity var(--duration-fast) ease,
-    transform var(--duration-base) var(--ease-out);
-}
-
-.logo:hover .logoImage {
-  opacity: 0.95;
-  transform: scale(1.03);
+  transition: width var(--duration-base) var(--ease-out);
 }
 
 
 /* -------------------------------------------------------------------------- */
-/* Navigation                                                                   */
+/* Navigation                                                                */
 /* -------------------------------------------------------------------------- */
 
 .nav {
@@ -151,36 +117,22 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
 
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.7);
 
-  background:
-    linear-gradient(
-      90deg,
-      #c9a227,
-      #e8cd7a
-    )
-    left bottom / 0 1.5px no-repeat;
-
-  transition:
-    color var(--duration-fast) ease,
-    background-size var(--duration-base) var(--ease-out);
+  transition: color var(--duration-fast) ease;
 }
 
 .link:hover {
   color: #fff;
-
-  background-size: 100% 1.5px;
 }
 
 .active {
-  color: #f2dfa0;
-
-  background-size: 100% 1.5px;
+  color: #fff;
 }
 
 
 /* -------------------------------------------------------------------------- */
-/* Actions                                                                      */
+/* Actions                                                                   */
 /* -------------------------------------------------------------------------- */
 
 .actions {
@@ -190,42 +142,16 @@
   gap: 0.85rem;
 }
 
+/* Layout/visibility only — appearance lives in Button.module.css's
+   `.premium` variant, so there is exactly one place that owns this
+   button's look. */
 .book {
   display: none;
-
-  background: linear-gradient(135deg, #e8cd7a 0%, #c9a227 60%, #a9821b 100%);
-  color: #17140a;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  font-size: 0.78rem;
-
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow:
-    0 2px 10px rgba(201, 162, 39, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.4);
-
-  transition:
-    transform var(--duration-fast) ease,
-    box-shadow var(--duration-base) ease,
-    filter var(--duration-fast) ease;
-}
-
-.book:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.05);
-  box-shadow:
-    0 4px 16px rgba(201, 162, 39, 0.45),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
-}
-
-.book:active {
-  transform: translateY(0);
 }
 
 
 /* -------------------------------------------------------------------------- */
-/* Mobile menu button                                                           */
+/* Mobile menu button                                                        */
 /* -------------------------------------------------------------------------- */
 
 .toggle {
@@ -241,21 +167,18 @@
 
   border-radius: var(--radius-sm);
   border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.04);
+  background: transparent;
 
-  transition:
-    background-color var(--duration-fast) ease,
-    border-color var(--duration-fast) ease;
+  transition: border-color var(--duration-fast) ease;
 }
 
 .toggle:hover {
-  background: rgba(201, 162, 39, 0.14);
-  border-color: rgba(201, 162, 39, 0.32);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 
 /* -------------------------------------------------------------------------- */
-/* Desktop                                                                      */
+/* Desktop                                                                   */
 /* -------------------------------------------------------------------------- */
 
 @media (min-width: 1080px) {
@@ -274,7 +197,7 @@
 
 
 /* -------------------------------------------------------------------------- */
-/* Large desktop                                                               */
+/* Large desktop                                                             */
 /* -------------------------------------------------------------------------- */
 
 @media (min-width: 1280px) {
@@ -285,7 +208,7 @@
 
 
 /* -------------------------------------------------------------------------- */
-/* Smaller desktop / tablet                                                    */
+/* Smaller desktop / tablet                                                  */
 /* -------------------------------------------------------------------------- */
 
 @media (min-width: 768px) and (max-width: 1079px) {
@@ -296,7 +219,7 @@
 
 
 /* -------------------------------------------------------------------------- */
-/* Mobile                                                                      */
+/* Mobile                                                                    */
 /* -------------------------------------------------------------------------- */
 
 @media (max-width: 767px) {
@@ -317,7 +240,7 @@
 
 
 /* -------------------------------------------------------------------------- */
-/* Small mobile                                                                */
+/* Small mobile                                                              */
 /* -------------------------------------------------------------------------- */
 
 @media (max-width: 420px) {
