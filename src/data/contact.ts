@@ -1,8 +1,8 @@
 import type { ContactDetails } from "@/types";
 
 export const contact: ContactDetails = {
-  phone: "+919846504810",
-  phoneDisplay: "+91 98465 04810",
+  phone: "+623 550 2103",
+  phoneDisplay: "+623 550 2103",
   whatsapp: "919846504810",
   email: "jiyajoseph@gmail.com",
 
