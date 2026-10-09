@@ -14,12 +14,10 @@ export const contact: ContactDetails = {
     pincode: "686575",
     country: "India",
   },
-
   hours: [
     { label: "Reception", value: "Open 24 hours" },
     { label: "Check-in / Check-out", value: "24 hours" },
   ],
-
   map: {
     query: "JC Residency, Mutholy, Brilliant Road, Pala, Kerala",
     zoom: 15,
@@ -30,7 +28,6 @@ export const contact: ContactDetails = {
     { platform: "instagram", label: "Instagram", url: "https://instagram.com/" },
     { platform: "youtube", label: "YouTube", url: "https://youtube.com/" },
   ],
-
   nearbyPlaces: [
     { name: "Bus Stand", distance: "50 m", icon: "bus" },
     { name: "Railway Station", distance: "25 km", icon: "train" },
